@@ -1,10 +1,11 @@
  import { useState } from "react"; 
+//  import './Bmi.css';
 function Bmi(){
     
-        const [weight, setWeight] = useState(0);
-        const [height, setHeight] = useState(0);
+        const [weight, setWeight] = useState();
+        const [height, setHeight] = useState();
         const [bmi, setBmi] = useState(0);
-        const [category, setCategory] = useState('');
+        const [BMI, setBMI] = useState('');
       
         function calculateBmi() {
           const heightInMeters = height / 100;
@@ -12,41 +13,19 @@ function Bmi(){
           setBmi(bmiResult.toFixed(1));
       
           if (bmiResult < 18.5) {
-            setCategory('Underweight');
+            setBMI('Underweight');
           } else if (bmiResult >= 18.5 && bmiResult <= 24.9) {
-            setCategory('Healthy');
+            setBMI('Healthy');
           } else if (bmiResult >= 25 && bmiResult <= 29.9) {
-            setCategory('Overweight');
+            setBMI('Overweight');
           } else {
-            setCategory('Obese');
+            setBMI('Obese');
           }
         }
       
     return(
 
-        <div>
-        <h1>BMI Calculator</h1>
-        <label htmlFor='weight'>Weight:</label>
-        <input
-          type='number'
-          id='weight'
-          value={weight}
-          onChange={(e) => setWeight(e.target.value)}
-        />
-  
-        <label htmlFor='height'>Height:</label>
-        <input
-          type='number'
-          id='height'
-          value={height}
-          onChange={(e) => setHeight(e.target.value)}
-        />
-  
-        <button onClick={calculateBmi}>Calculate BMI</button>
-  
-        <p>Your BMI is: {bmi}</p>
-        <p>Your category is: {category}</p>
-      </div>
+        <div></div>
     );
   
     }
